@@ -1,0 +1,1250 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grand Royale | Luxury Hotel</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+:root {
+    --green: #173c32;
+    --dark: #102a24;
+    --gold: #c5a46d;
+    --cream: #f7f5ef;
+    --white: #ffffff;
+    --text: #555;
+}
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    color: var(--text);
+    background: var(--white);
+    line-height: 1.6;
+}
+
+button, input, select, textarea {
+    font: inherit;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.section {
+    padding: 85px 0;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+.section-title span {
+    color: var(--gold);
+    letter-spacing: 3px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.section-title h2 {
+    color: var(--green);
+    font-family: Georgia, serif;
+    font-size: 38px;
+    margin-top: 10px;
+}
+
+/* NAVIGATION */
+
+header {
+    background: var(--white);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 12px #00000010;
+}
+
+.navbar {
+    min-height: 78px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    color: var(--green);
+    font-family: Georgia, serif;
+    font-size: 27px;
+    font-weight: bold;
+}
+
+.logo span {
+    color: var(--gold);
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    list-style: none;
+}
+
+.nav-links a {
+    color: #333;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.nav-links a:hover {
+    color: var(--gold);
+}
+
+.nav-book {
+    background: var(--green);
+    color: white !important;
+    padding: 12px 20px;
+}
+
+.menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 27px;
+    cursor: pointer;
+}
+
+/* HERO */
+
+.hero {
+    min-height: 650px;
+    display: flex;
+    align-items: center;
+    background:
+    linear-gradient(90deg, rgba(0,0,0,.70), rgba(0,0,0,.12)),
+    url('https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=2000&q=85')
+    center/cover;
+    color: white;
+}
+
+.hero-content {
+    max-width: 700px;
+    padding: 90px 0;
+}
+
+.hero-content .small {
+    color: #e6c88e;
+    letter-spacing: 4px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.hero h1 {
+    font-family: Georgia, serif;
+    font-size: clamp(42px, 6vw, 72px);
+    line-height: 1.12;
+    margin: 20px 0;
+}
+
+.hero p {
+    font-size: 17px;
+    max-width: 540px;
+    margin-bottom: 30px;
+}
+
+.btn {
+    display: inline-block;
+    background: var(--gold);
+    color: #17251e;
+    padding: 14px 28px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    transition: .3s;
+}
+
+.btn:hover {
+    background: white;
+    transform: translateY(-3px);
+}
+
+.btn-green {
+    background: var(--green);
+    color: white;
+}
+
+.btn-green:hover {
+    background: var(--gold);
+    color: var(--dark);
+}
+
+/* BOOKING */
+
+.booking {
+    background: var(--cream);
+    padding: 30px 0;
+}
+
+.booking-form {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 15px;
+    align-items: end;
+}
+
+.field label {
+    display: block;
+    font-size: 13px;
+    font-weight: bold;
+    color: var(--green);
+    margin-bottom: 7px;
+}
+
+.field input, .field select {
+    width: 100%;
+    padding: 13px;
+    border: 1px solid #ddd;
+    background: white;
+    outline: none;
+}
+
+.booking-form button {
+    width: 100%;
+    padding: 14px 10px;
+}
+
+/* ABOUT */
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 55px;
+    align-items: center;
+}
+
+.about-image img {
+    width: 100%;
+    height: 430px;
+    object-fit: cover;
+}
+
+.about-content h2 {
+    color: var(--green);
+    font-family: Georgia, serif;
+    font-size: 38px;
+    line-height: 1.2;
+    margin: 15px 0;
+}
+
+.about-content p {
+    margin-bottom: 20px;
+}
+
+.stats {
+    display: flex;
+    gap: 35px;
+    margin: 25px 0;
+}
+
+.stat h3 {
+    color: var(--gold);
+    font-size: 30px;
+}
+
+/* ROOMS */
+
+.rooms {
+    background: var(--cream);
+}
+
+.room-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.room-card {
+    background: white;
+    box-shadow: 0 5px 25px #0000000b;
+    overflow: hidden;
+    transition: .3s;
+}
+
+.room-card:hover {
+    transform: translateY(-8px);
+}
+
+.room-card img {
+    width: 100%;
+    height: 230px;
+    object-fit: cover;
+}
+
+.room-info {
+    padding: 24px;
+}
+
+.room-info h3 {
+    color: var(--green);
+    font-family: Georgia, serif;
+    font-size: 23px;
+}
+
+.room-info p {
+    margin: 10px 0;
+    font-size: 14px;
+}
+
+.room-price {
+    color: var(--gold);
+    font-size: 21px;
+    font-weight: bold;
+    margin: 15px 0;
+}
+
+.room-price small {
+    font-size: 12px;
+    color: #777;
+}
+
+/* FACILITIES */
+
+.facility-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 22px;
+}
+
+.facility {
+    text-align: center;
+    background: var(--cream);
+    padding: 30px 15px;
+    transition: .3s;
+}
+
+.facility:hover {
+    background: var(--green);
+    color: white;
+}
+
+.facility .symbol {
+    font-size: 36px;
+    margin-bottom: 12px;
+}
+
+.facility h3 {
+    color: var(--green);
+    margin-bottom: 8px;
+}
+
+.facility:hover h3 {
+    color: var(--gold);
+}
+
+/* GALLERY */
+
+.gallery {
+    background: var(--cream);
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.gallery-grid img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.gallery-grid img:hover {
+    opacity: .8;
+    transform: scale(1.02);
+}
+
+.lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+    background: #000e;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.lightbox img {
+    max-width: 90%;
+    max-height: 85vh;
+    object-fit: contain;
+}
+
+.lightbox button {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    background: none;
+    color: white;
+    border: none;
+    font-size: 40px;
+    cursor: pointer;
+}
+
+/* OFFER */
+
+.offer {
+    background: var(--green);
+    color: white;
+    text-align: center;
+    padding: 75px 20px;
+}
+
+.offer h2 {
+    font-family: Georgia, serif;
+    font-size: 38px;
+    margin: 12px 0;
+}
+
+.offer p {
+    margin-bottom: 25px;
+}
+
+/* TESTIMONIAL */
+
+.testimonial {
+    max-width: 750px;
+    margin: auto;
+    text-align: center;
+    background: var(--cream);
+    padding: 40px;
+}
+
+.stars {
+    color: var(--gold);
+    font-size: 25px;
+}
+
+.testimonial p {
+    font-family: Georgia, serif;
+    font-size: 21px;
+    margin: 20px 0;
+}
+
+.testimonial h4 {
+    color: var(--green);
+}
+
+/* CONTACT */
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 45px;
+}
+
+.contact-details h3 {
+    color: var(--green);
+    font-family: Georgia, serif;
+    font-size: 27px;
+    margin-bottom: 20px;
+}
+
+.contact-details p {
+    margin: 15px 0;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 14px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    outline: none;
+}
+
+.contact-form textarea {
+    height: 120px;
+    resize: vertical;
+}
+
+/* FOOTER */
+
+footer {
+    background: var(--dark);
+    color: white;
+    padding: 55px 0 20px;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 35px;
+}
+
+footer h3 {
+    color: var(--gold);
+    margin-bottom: 15px;
+}
+
+footer p, footer a {
+    color: #ddd;
+    font-size: 14px;
+}
+
+footer a:hover {
+    color: var(--gold);
+}
+
+footer ul {
+    list-style: none;
+}
+
+footer li {
+    margin: 9px 0;
+}
+
+.copyright {
+    text-align: center;
+    border-top: 1px solid #ffffff25;
+    padding-top: 20px;
+    font-size: 13px;
+}
+
+/* NOTIFICATIONS */
+
+.toast {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    background: var(--green);
+    color: white;
+    padding: 18px 25px;
+    z-index: 3000;
+    display: none;
+    max-width: 350px;
+    box-shadow: 0 5px 20px #0003;
+}
+
+/* RESPONSIVE */
+
+@media(max-width: 900px) {
+    .booking-form {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .room-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .facility-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .about-grid {
+        gap: 25px;
+    }
+}
+
+@media(max-width: 650px) {
+    .menu-btn {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 78px;
+        left: 0;
+        width: 100%;
+        background: white;
+        flex-direction: column;
+        align-items: stretch;
+        padding: 20px 5%;
+        gap: 0;
+        box-shadow: 0 8px 15px #0002;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links li {
+        padding: 13px 0;
+        border-bottom: 1px solid #eee;
+    }
+
+    .hero {
+        min-height: 560px;
+    }
+
+    .hero h1 {
+        font-size: 43px;
+    }
+
+    .booking-form,
+    .about-grid,
+    .room-grid,
+    .contact-grid,
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .gallery-grid img {
+        height: 160px;
+    }
+
+    .about-image img {
+        height: 300px;
+    }
+
+    .stats {
+        gap: 20px;
+    }
+
+    .section {
+        padding: 60px 0;
+    }
+
+    .section-title h2 {
+        font-size: 31px;
+    }
+
+    .offer h2 {
+        font-size: 30px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVIGATION -->
+
+<header>
+<nav class="navbar container">
+
+    <a href="#home" class="logo">
+        GRAND <span>ROYALE.</span>
+    </a>
+
+    <button class="menu-btn" id="menuBtn"
+    aria-label="Toggle navigation" aria-expanded="false">☰</button>
+
+    <ul class="nav-links" id="navLinks">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#rooms">Rooms</a></li>
+        <li><a href="#facilities">Facilities</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#booking" class="nav-book">Book Now</a></li>
+    </ul>
+
+</nav>
+</header>
+
+<!-- HERO SECTION -->
+
+<section class="hero" id="home">
+<div class="container">
+    <div class="hero-content">
+        <div class="small">WELCOME TO GRAND ROYALE</div>
+
+        <h1>Experience Luxury. Embrace Comfort.</h1>
+
+        <p>
+            Discover exceptional hospitality, elegant rooms
+            and unforgettable experiences at our luxury hotel.
+        </p>
+
+        <a href="#rooms" class="btn">EXPLORE OUR ROOMS</a>
+    </div>
+</div>
+</section>
+
+<!-- BOOKING SECTION -->
+
+<section class="booking" id="booking">
+<div class="container">
+
+<form class="booking-form" id="bookingForm">
+
+    <div class="field">
+        <label for="checkin">CHECK-IN</label>
+        <input type="date" id="checkin" required>
+    </div>
+
+    <div class="field">
+        <label for="checkout">CHECK-OUT</label>
+        <input type="date" id="checkout" required>
+    </div>
+
+    <div class="field">
+        <label for="guests">GUESTS</label>
+        <select id="guests">
+            <option value="1">1 Guest</option>
+            <option value="2" selected>2 Guests</option>
+            <option value="3">3 Guests</option>
+            <option value="4">4 Guests</option>
+            <option value="5">5 Guests</option>
+        </select>
+    </div>
+
+    <div class="field">
+        <label for="rooms">ROOMS</label>
+        <select id="rooms">
+            <option value="1">1 Room</option>
+            <option value="2">2 Rooms</option>
+            <option value="3">3 Rooms</option>
+        </select>
+    </div>
+
+    <button type="submit" class="btn btn-green">
+        CHECK AVAILABILITY
+    </button>
+
+</form>
+</div>
+</section>
+
+<!-- ABOUT SECTION -->
+
+<section class="section" id="about">
+<div class="container about-grid">
+
+    <div class="about-image">
+        <img src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=1000&q=85"
+        alt="Luxury hotel swimming pool">
+    </div>
+
+    <div class="about-content">
+        <span style="color:#c5a46d;letter-spacing:3px">
+            ABOUT OUR HOTEL
+        </span>
+
+        <h2>A Perfect Blend of Luxury and Hospitality</h2>
+
+        <p>
+            Welcome to Grand Royale, where timeless elegance
+            meets modern comfort. We offer a relaxing atmosphere,
+            exceptional service and memorable experiences.
+        </p>
+
+        <p>
+            Whether you are travelling for business or leisure,
+            our dedicated team ensures that every moment
+            of your stay is special.
+        </p>
+
+        <div class="stats">
+            <div class="stat">
+                <h3>15+</h3>
+                <p>Years Experience</p>
+            </div>
+
+            <div class="stat">
+                <h3>50+</h3>
+                <p>Luxury Rooms</p>
+            </div>
+
+            <div class="stat">
+                <h3>10K+</h3>
+                <p>Happy Guests</p>
+            </div>
+        </div>
+
+        <a href="#contact" class="btn btn-green">CONTACT US</a>
+    </div>
+
+</div>
+</section>
+
+<!-- ROOMS SECTION -->
+
+<section class="section rooms" id="rooms">
+<div class="container">
+
+    <div class="section-title">
+        <span>ACCOMMODATION</span>
+        <h2>Our Luxury Rooms & Suites</h2>
+        <p>Choose the perfect room for your stay.</p>
+    </div>
+
+    <div class="room-grid">
+
+        <div class="room-card">
+            <img src="https://images.unsplash.com/photo-1611892440504-42a792e24d32?auto=format&fit=crop&w=900&q=80"
+            alt="Deluxe room">
+
+            <div class="room-info">
+                <h3>Deluxe Room</h3>
+                <p>Elegant interiors, comfortable bedding and modern amenities.</p>
+                <div class="room-price">₹4,500 <small>/ night</small></div>
+                <a href="#booking" class="btn btn-green">BOOK NOW</a>
+            </div>
+        </div>
+
+        <div class="room-card">
+            <img src="https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=900&q=80"
+            alt="Executive suite">
+
+            <div class="room-info">
+                <h3>Executive Suite</h3>
+                <p>Spacious accommodation designed for comfort and luxury.</p>
+                <div class="room-price">₹7,000 <small>/ night</small></div>
+                <a href="#booking" class="btn btn-green">BOOK NOW</a>
+            </div>
+        </div>
+
+        <div class="room-card">
+            <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=900&q=80"
+            alt="Presidential suite">
+
+            <div class="room-info">
+                <h3>Presidential Suite</h3>
+                <p>Premium luxury with exceptional views and exclusive facilities.</p>
+                <div class="room-price">₹12,000 <small>/ night</small></div>
+                <a href="#booking" class="btn btn-green">BOOK NOW</a>
+            </div>
+        </div>
+
+    </div>
+</div>
+</section>
+
+<!-- FACILITIES -->
+
+<section class="section" id="facilities">
+<div class="container">
+
+    <div class="section-title">
+        <span>OUR SERVICES</span>
+        <h2>Hotel Facilities & Amenities</h2>
+    </div>
+
+    <div class="facility-grid">
+
+        <div class="facility">
+            <div class="symbol">🏊</div>
+            <h3>Swimming Pool</h3>
+            <p>Relax and refresh.</p>
+        </div>
+
+        <div class="facility">
+            <div class="symbol">🍽️</div>
+            <h3>Restaurant</h3>
+            <p>Delicious dining experiences.</p>
+        </div>
+
+        <div class="facility">
+            <div class="symbol">💆</div>
+            <h3>Spa & Wellness</h3>
+            <p>Relax your body and mind.</p>
+        </div>
+
+        <div class="facility">
+            <div class="symbol">🏋️</div>
+            <h3>Fitness Centre</h3>
+            <p>Stay fit during your stay.</p>
+        </div>
+
+        <div class="facility">
+            <div class="symbol">📶</div>
+            <h3>Free Wi-Fi</h3>
+            <p>Stay connected everywhere.</p>
+        </div>
+
+        <div class="facility">
+            <div class="symbol">🚗</div>
+            <h3>Free Parking</h3>
+            <p>Convenient secure parking.</p>
+        </div>
+
+        <div class="facility">
+            <div class="symbol">🛎️</div>
+            <h3>24/7 Room Service</h3>
+            <p>Assistance whenever you need.</p>
+        </div>
+
+        <div class="facility">
+            <div class="symbol">✈️</div>
+            <h3>Airport Transfer</h3>
+            <p>Comfortable travel arrangements.</p>
+        </div>
+
+    </div>
+</div>
+</section>
+
+<!-- GALLERY -->
+
+<section class="section gallery" id="gallery">
+<div class="container">
+
+    <div class="section-title">
+        <span>PHOTO GALLERY</span>
+        <h2>Explore Our Hotel</h2>
+    </div>
+
+    <div class="gallery-grid">
+
+        <img onclick="openImage(this)" src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=900&q=80" alt="Hotel exterior">
+
+        <img onclick="openImage(this)" src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=900&q=80" alt="Swimming pool">
+
+        <img onclick="openImage(this)" src="https://images.unsplash.com/photo-1611892440504-42a792e24d32?auto=format&fit=crop&w=900&q=80" alt="Hotel room">
+
+        <img onclick="openImage(this)" src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=900&q=80" alt="Fine dining">
+
+        <img onclick="openImage(this)" src="https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&w=900&q=80" alt="Resort pool">
+
+        <img onclick="openImage(this)" src="https://images.unsplash.com/photo-1578683010236-d716f9a3f461?auto=format&fit=crop&w=900&q=80" alt="Luxury suite">
+
+    </div>
+</div>
+</section>
+
+<div class="lightbox" id="lightbox" onclick="closeImage()">
+    <button aria-label="Close image" onclick="closeImage()">×</button>
+    <img id="lightboxImage" src="" alt="Gallery preview">
+</div>
+
+<!-- SPECIAL OFFER -->
+
+<section class="offer">
+    <span style="color:#e6c88e;letter-spacing:3px">
+        EXCLUSIVE OFFER
+    </span>
+
+    <h2>Make Your Stay More Special</h2>
+
+    <p>Enjoy a memorable hotel experience with our exclusive seasonal offers.</p>
+
+    <a href="#booking" class="btn">RESERVE YOUR STAY</a>
+</section>
+
+<!-- TESTIMONIAL -->
+
+<section class="section">
+<div class="container">
+
+    <div class="section-title">
+        <span>GUEST EXPERIENCES</span>
+        <h2>What Our Guests Say</h2>
+    </div>
+
+    <div class="testimonial">
+
+        <div class="stars">★★★★★</div>
+
+        <p id="reviewText">
+            "An amazing experience! The rooms were beautiful,
+            the food was excellent and the staff were extremely
+            friendly. I would definitely visit again."
+        </p>
+
+        <h4 id="reviewName">— Sarah Johnson</h4>
+
+        <div style="margin-top:25px">
+            <button class="btn btn-green" onclick="changeReview(-1)">❮</button>
+            <button class="btn btn-green" onclick="changeReview(1)">❯</button>
+        </div>
+
+    </div>
+</div>
+</section>
+
+<!-- CONTACT -->
+
+<section class="section" id="contact">
+<div class="container">
+
+    <div class="section-title">
+        <span>GET IN TOUCH</span>
+        <h2>Contact Our Hotel</h2>
+    </div>
+
+    <div class="contact-grid">
+
+        <div class="contact-details">
+
+            <h3>We Would Love to Hear From You</h3>
+
+            <p>📍 Address: Kochi, Kerala, India</p>
+            <p>📞 Phone: +91 98765 43210</p>
+            <p>✉️ Email: info@grandroyale.com</p>
+            <p>🕒 Reception: Available 24 Hours</p>
+
+            <p>
+                Contact us for room reservations,
+                enquiries and additional information.
+            </p>
+
+        </div>
+
+        <form class="contact-form" id="contactForm">
+
+            <input type="text" id="name"
+            placeholder="Your Name" required>
+
+            <input type="email" id="email"
+            placeholder="Your Email" required>
+
+            <input type="text" id="subject"
+            placeholder="Subject" required>
+
+            <textarea id="message"
+            placeholder="Your Message" required></textarea>
+
+            <button type="submit" class="btn btn-green">
+                SEND MESSAGE
+            </button>
+
+        </form>
+
+    </div>
+</div>
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+<div class="container">
+
+    <div class="footer-grid">
+
+        <div>
+            <h3>GRAND ROYALE</h3>
+            <p>
+                Experience luxury, comfort and exceptional
+                hospitality. Your perfect destination for
+                unforgettable memories.
+            </p>
+        </div>
+
+        <div>
+            <h3>QUICK LINKS</h3>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#rooms">Our Rooms</a></li>
+                <li><a href="#facilities">Facilities</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+
+        <div>
+            <h3>NEWSLETTER</h3>
+            <p>Subscribe to receive hotel updates and offers.</p>
+
+            <form id="newsletterForm">
+                <input type="email" id="newsletterEmail"
+                placeholder="Enter your email" required
+                style="padding:12px;width:100%;margin:12px 0;border:none">
+
+                <button class="btn" type="submit">SUBSCRIBE</button>
+            </form>
+        </div>
+
+    </div>
+
+    <div class="copyright">
+        © <span id="year"></span> Grand Royale Hotel.
+        All Rights Reserved.
+    </div>
+
+</div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<!-- JAVASCRIPT -->
+
+<script>
+
+// MOBILE NAVIGATION
+
+const menuBtn = document.getElementById("menuBtn");
+const navLinks = document.getElementById("navLinks");
+
+menuBtn.addEventListener("click", () => {
+    const isOpen = navLinks.classList.toggle("active");
+    menuBtn.setAttribute("aria-expanded", isOpen);
+    menuBtn.textContent = isOpen ? "✕" : "☰";
+});
+
+document.querySelectorAll(".nav-links a").forEach(link => {
+    link.addEventListener("click", () => {
+        navLinks.classList.remove("active");
+        menuBtn.setAttribute("aria-expanded", "false");
+        menuBtn.textContent = "☰";
+    });
+});
+
+// NOTIFICATION
+
+let toastTimer;
+
+function showToast(message) {
+    const toast = document.getElementById("toast");
+    toast.textContent = message;
+    toast.style.display = "block";
+
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => {
+        toast.style.display = "none";
+    }, 4000);
+}
+
+// DATE VALIDATION
+
+const checkin = document.getElementById("checkin");
+const checkout = document.getElementById("checkout");
+
+function localDateString(date) {
+    const y = date.getFullYear();
+    const m = String(date.getMonth() + 1).padStart(2, "0");
+    const d = String(date.getDate()).padStart(2, "0");
+    return `${y}-${m}-${d}`;
+}
+
+const today = localDateString(new Date());
+
+checkin.min = today;
+checkout.min = today;
+
+checkin.addEventListener("change", () => {
+    checkout.min = checkin.value || today;
+
+    if (checkout.value && checkout.value <= checkin.value) {
+        checkout.value = "";
+    }
+});
+
+// BOOKING FORM
+
+document.getElementById("bookingForm")
+.addEventListener("submit", function(e) {
+
+    e.preventDefault();
+
+    const start = checkin.value;
+    const end = checkout.value;
+
+    if (!start || !end || end <= start) {
+        showToast("Please select a valid check-in and check-out date.");
+        return;
+    }
+
+    const guests = document.getElementById("guests").value;
+    const rooms = document.getElementById("rooms").value;
+
+    const nights = Math.round(
+        (new Date(end + "T00:00:00") -
+        new Date(start + "T00:00:00")) / 86400000
+    );
+
+    showToast(
+        `Booking enquiry received! ${nights} nights, ${guests} guests, ${rooms} room(s). This is a demo; no reservation has been made.`
+    );
+
+});
+
+// GALLERY LIGHTBOX
+
+function openImage(image) {
+    document.getElementById("lightboxImage").src = image.src;
+    document.getElementById("lightbox").style.display = "flex";
+}
+
+function closeImage() {
+    document.getElementById("lightbox").style.display = "none";
+}
+
+document.addEventListener("keydown", function(e) {
+    if (e.key === "Escape") closeImage();
+});
+
+// TESTIMONIAL SLIDER
+
+const reviews = [
+    {
+        text: '"An amazing experience! The rooms were beautiful, the food was excellent and the staff were extremely friendly. I would definitely visit again."',
+        name: "— Sarah Johnson"
+    },
+    {
+        text: '"The hospitality was outstanding. The peaceful atmosphere and beautiful surroundings made our holiday truly memorable."',
+        name: "— Michael Thomas"
+    },
+    {
+        text: '"Excellent service, comfortable rooms and delicious food. One of the best hotel experiences we have ever had."',
+        name: "— Priya Sharma"
+    }
+];
+
+let currentReview = 0;
+
+function changeReview(direction) {
+    currentReview =
+        (currentReview + direction + reviews.length) % reviews.length;
+
+    document.getElementById("reviewText").textContent =
+        reviews[currentReview].text;
+
+    document.getElementById("reviewName").textContent =
+        reviews[currentReview].name;
+}
+
+// CONTACT FORM
+
+document.getElementById("contactForm")
+.addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    showToast("Thank you! Your message has been submitted in this demo.");
+
+    this.reset();
+});
+
+// NEWSLETTER
+
+document.getElementById("newsletterForm")
+.addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    showToast("Thank you for subscribing!");
+
+    this.reset();
+});
+
+// CURRENT YEAR
+
+document.getElementById("year").textContent =
+    new Date().getFullYear();
+
+</script>
+
+</body>
+</html>
